@@ -1,0 +1,129 @@
+================================================================
+  Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC
+  Version 2017.2
+  Build 1909853 on Thu Jun 15 18:55:24 MDT 2017
+  Copyright (C) 1986-2017 Xilinx, Inc. All Rights Reserved.
+================================================================
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Wilson' on host 'wilson24' (Windows NT_amd64 version 6.2) on Sat Mar 30 12:45:43 -0400 2019
+INFO: [HLS 200-10] In directory 'C:/Users/Wilson/Desktop/classic_cnn/fc_test'
+INFO: [HLS 200-10] Opening project 'C:/Users/Wilson/Desktop/classic_cnn/hls_proj/fc_proj'.
+INFO: [HLS 200-10] Adding design file '../fc_test/fc_layer.cpp' to the project
+INFO: [HLS 200-10] Opening solution 'C:/Users/Wilson/Desktop/classic_cnn/hls_proj/fc_proj/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a200tsbg484-1'
+INFO: [HLS 200-10] Analyzing design file '../fc_test/fc_layer.cpp' ... 
+WARNING: [HLS 200-40] Cannot find source file ../fc_layer.cpp; skipping it.
+WARNING: [HLS 200-40] Cannot find source file fc_layer.cpp; skipping it.
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:16 . Memory (MB): peak = 98.293 ; gain = 48.941
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:18 . Memory (MB): peak = 98.313 ; gain = 48.961
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'std::max<float>' into 'fc_layer' (../fc_test/fc_layer.cpp:52).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:05 ; elapsed = 00:00:19 . Memory (MB): peak = 98.313 ; gain = 48.961
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:05 ; elapsed = 00:00:19 . Memory (MB): peak = 98.313 ; gain = 48.961
+INFO: [XFORM 203-11] Balancing expressions in function 'fc_layer' (../fc_test/fc_layer.cpp:4)...4 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:20 . Memory (MB): peak = 119.152 ; gain = 69.801
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-1.1' (../fc_test/fc_layer.cpp:28:19) in function 'fc_layer' : 
+WARNING: [XFORM 203-542] the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (../fc_test/fc_layer.cpp:25:17) in function 'fc_layer'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:20 . Memory (MB): peak = 119.152 ; gain = 69.801
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'fc_layer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'fc_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'phi' operation ('output_element') with incoming values : ('output_element', ../fc_test/fc_layer.cpp:31) ('output_element', ../fc_test/fc_layer.cpp:40) and 'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0)
+   between 'phi' operation ('output_element') with incoming values : ('output_element', ../fc_test/fc_layer.cpp:31) ('output_element', ../fc_test/fc_layer.cpp:40) and 'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0)
+   between 'phi' operation ('output_element') with incoming values : ('output_element', ../fc_test/fc_layer.cpp:31) ('output_element', ../fc_test/fc_layer.cpp:40) and 'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 0)
+   between 'phi' operation ('output_element') with incoming values : ('output_element', ../fc_test/fc_layer.cpp:31) ('output_element', ../fc_test/fc_layer.cpp:40) and 'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 11, distance = 1, offset = 0)
+   between 'phi' operation ('output_element') with incoming values : ('output_element', ../fc_test/fc_layer.cpp:31) ('output_element', ../fc_test/fc_layer.cpp:40) and 'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40).
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 12, Depth: 47.
+WARNING: [SCHED 204-21] Estimated clock period (9.24ns) exceeds the target (target clock period: 4ns, clock uncertainty: 0.5ns, effective delay budget: 3.5ns).
+WARNING: [SCHED 204-21] The critical path consists of the following:
+	'add' operation ('tmp5', ../fc_test/fc_layer.cpp:38) (2.85 ns)
+	'add' operation ('tmp_16', ../fc_test/fc_layer.cpp:38) (2.89 ns)
+	'getelementptr' operation ('mem_addr_2', ../fc_test/fc_layer.cpp:38) (0 ns)
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:38) (3.5 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 21.289 seconds; current allocated memory: 75.075 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.996 seconds; current allocated memory: 75.895 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fc_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'fc_layer/mem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'fc_layer/input_offset' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'fc_layer/output_offset' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'fc_layer/batch_size' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'fc_layer/num_inputs' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'fc_layer/num_outputs' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'fc_layer/enable_relu' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'fc_layer' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'input_offset', 'output_offset', 'batch_size', 'num_inputs', 'num_outputs' and 'enable_relu' to AXI-Lite port CTRL_BUS.
+INFO: [SYN 201-210] Renamed object name 'fc_layer_fadd_32ns_32ns_32_13_full_dsp' to 'fc_layer_fadd_32nbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'fc_layer_fmul_32ns_32ns_32_8_max_dsp' to 'fc_layer_fmul_32ncud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'fc_layer_fcmp_32ns_32ns_1_4' to 'fc_layer_fcmp_32ndEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'fc_layer_mul_32s_32s_32_7' to 'fc_layer_mul_32s_eOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'fc_layer_mul_32ns_32ns_64_7' to 'fc_layer_mul_32nsfYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'fc_layer_add_64ns_64ns_64_2' to 'fc_layer_add_64nsg8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'fc_layer_mul_31ns_32s_32_7' to 'fc_layer_mul_31nshbi' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'fc_layer_add_64nsg8j': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fc_layer_fadd_32nbkb': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fc_layer_fcmp_32ndEe': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fc_layer_fmul_32ncud': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fc_layer_mul_31nshbi': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fc_layer_mul_32nsfYi': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fc_layer_mul_32s_eOg': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fc_layer'.
+INFO: [HLS 200-111]  Elapsed time: 0.865 seconds; current allocated memory: 77.839 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'fc_layer_mul_32s_eOg_MulnS_0'
+INFO: [RTMG 210-282] Generating pipelined core: 'fc_layer_mul_32nsfYi_MulnS_1'
+INFO: [RTMG 210-283] Generating pipelined adder/subtractor : 'fc_layer_add_64nsg8j_AddSubnS_0'
+INFO: [RTMG 210-282] Generating pipelined core: 'fc_layer_mul_31nshbi_MulnS_2'
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:11 ; elapsed = 00:00:30 . Memory (MB): peak = 123.313 ; gain = 73.961
+INFO: [SYSC 207-301] Generating SystemC RTL for fc_layer.
+INFO: [VHDL 208-304] Generating VHDL RTL for fc_layer.
+INFO: [VLOG 209-307] Generating Verilog RTL for fc_layer.
+INFO: [IMPL 213-8] Exporting RTL as an IP in IP-XACT.
+
+****** Vivado v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+Sourcing tcl script 'C:/Users/Wilson/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+source run_ippack.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 320.371 ; gain = 92.305
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+WARNING: [IP_Flow 19-4832] The IP name 'fc_layer_ap_fadd_11_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 349.168 ; gain = 28.797
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fc_layer_ap_fadd_11_full_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fc_layer_ap_fadd_11_full_dsp_32'...
+WARNING: [IP_Flow 19-4832] The IP name 'fc_layer_ap_fcmp_2_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 360.289 ; gain = 3.105
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fc_layer_ap_fcmp_2_no_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fc_layer_ap_fcmp_2_no_dsp_32'...
+WARNING: [IP_Flow 19-4832] The IP name 'fc_layer_ap_fmul_6_max_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 367.313 ; gain = 7.016
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'fc_layer_ap_fmul_6_max_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'fc_layer_ap_fmul_6_max_dsp_32'...
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 30 12:47:35 2019...
+INFO: [HLS 200-112] Total elapsed time: 247.852 seconds; peak allocated memory: 77.839 MB.

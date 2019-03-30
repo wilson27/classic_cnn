@@ -1,0 +1,150 @@
+================================================================
+  Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC
+  Version 2017.2
+  Build 1909853 on Thu Jun 15 18:55:24 MDT 2017
+  Copyright (C) 1986-2017 Xilinx, Inc. All Rights Reserved.
+================================================================
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Wilson' on host 'wilson24' (Windows NT_amd64 version 6.2) on Sat Mar 30 12:40:33 -0400 2019
+INFO: [HLS 200-10] In directory 'C:/Users/Wilson/Desktop/classic_cnn/conv_test'
+INFO: [HLS 200-10] Opening project 'C:/Users/Wilson/Desktop/classic_cnn/hls_proj/conv_proj'.
+INFO: [HLS 200-10] Adding design file '../conv_test/conv_layer.cpp' to the project
+INFO: [HLS 200-10] Opening solution 'C:/Users/Wilson/Desktop/classic_cnn/hls_proj/conv_proj/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a200tsbg484-1'
+INFO: [HLS 200-10] Analyzing design file '../conv_test/conv_layer.cpp' ... 
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:07 ; elapsed = 00:00:22 . Memory (MB): peak = 98.609 ; gain = 48.809
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:07 ; elapsed = 00:00:24 . Memory (MB): peak = 98.629 ; gain = 48.828
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:08 ; elapsed = 00:00:26 . Memory (MB): peak = 101.727 ; gain = 51.926
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:08 ; elapsed = 00:00:26 . Memory (MB): peak = 104.164 ; gain = 54.363
+INFO: [XFORM 203-11] Balancing expressions in function 'conv_layer' (../conv_test/conv_layer.cpp:6)...7 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:28 . Memory (MB): peak = 128.004 ; gain = 78.203
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1.1.1.1.1.1' (../conv_test/conv_layer.cpp:63:42) in function 'conv_layer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1.1.1.1.1' (../conv_test/conv_layer.cpp:60:27) in function 'conv_layer'.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-1.1.1.1' (../conv_test/conv_layer.cpp:52:25) in function 'conv_layer' : 
+WARNING: [XFORM 203-542] the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1.1.1' (../conv_test/conv_layer.cpp:49:23) in function 'conv_layer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1.1' (../conv_test/conv_layer.cpp:46:21) in function 'conv_layer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (../conv_test/conv_layer.cpp:43:16) in function 'conv_layer'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:09 ; elapsed = 00:00:28 . Memory (MB): peak = 129.082 ; gain = 79.281
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'conv_layer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'conv_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-21] Estimated delay (4.66ns) of 'icmp' operation ('exitcond_flatten3') exceeds the target cycle time (target cycle time: 4ns, clock uncertainty: 0.5ns, effective cycle time: 3.5ns).
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 1)
+   between 'add' operation ('indvar_flatten_next4') and 'add' operation ('indvar_flatten_next4').
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'phi' operation ('output_element') with incoming values : ('output_element', ../conv_test/conv_layer.cpp:55) ('output_element', ../conv_test/conv_layer.cpp:73) and 'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0)
+   between 'phi' operation ('output_element') with incoming values : ('output_element', ../conv_test/conv_layer.cpp:55) ('output_element', ../conv_test/conv_layer.cpp:73) and 'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0)
+   between 'phi' operation ('output_element') with incoming values : ('output_element', ../conv_test/conv_layer.cpp:55) ('output_element', ../conv_test/conv_layer.cpp:73) and 'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 0)
+   between 'phi' operation ('output_element') with incoming values : ('output_element', ../conv_test/conv_layer.cpp:55) ('output_element', ../conv_test/conv_layer.cpp:73) and 'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 11, distance = 1, offset = 0)
+   between 'phi' operation ('output_element') with incoming values : ('output_element', ../conv_test/conv_layer.cpp:55) ('output_element', ../conv_test/conv_layer.cpp:73) and 'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73).
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 12, Depth: 65.
+WARNING: [SCHED 204-21] Estimated clock period (9.28ns) exceeds the target (target clock period: 4ns, clock uncertainty: 0.5ns, effective delay budget: 3.5ns).
+WARNING: [SCHED 204-21] The critical path consists of the following:
+	'add' operation ('tmp20', ../conv_test/conv_layer.cpp:71) (2.89 ns)
+	'add' operation ('tmp_18', ../conv_test/conv_layer.cpp:71) (2.89 ns)
+	'getelementptr' operation ('mem_addr_3', ../conv_test/conv_layer.cpp:71) (0 ns)
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:71) (3.5 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 30.696 seconds; current allocated memory: 86.092 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.879 seconds; current allocated memory: 88.128 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/mem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/input_offset' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/output_offset' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/b' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/od' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/ox' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/oy' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/id' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/ix' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/iy' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/s' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/k' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'conv_layer' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'input_offset', 'output_offset', 'b', 'od', 'ox', 'oy', 'id', 'ix', 'iy', 's' and 'k' to AXI-Lite port CTRL_BUS.
+INFO: [SYN 201-210] Renamed object name 'conv_layer_fadd_32ns_32ns_32_13_full_dsp' to 'conv_layer_fadd_3bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_fmul_32ns_32ns_32_8_max_dsp' to 'conv_layer_fmul_3cud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_fcmp_32ns_32ns_1_4' to 'conv_layer_fcmp_3dEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_mul_32ns_32ns_64_7' to 'conv_layer_mul_32eOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_mul_64ns_32ns_96_19' to 'conv_layer_mul_64fYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_mul_96ns_32ns_128_19' to 'conv_layer_mul_96g8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_mul_32s_32s_32_7' to 'conv_layer_mul_32hbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_mul_32s_31ns_32_7' to 'conv_layer_mul_32ibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_add_128ns_128ns_128_3' to 'conv_layer_add_12jbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_add_96ns_96ns_96_2' to 'conv_layer_add_96kbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_add_64ns_64ns_64_2' to 'conv_layer_add_64lbW' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_add_12jbC': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_add_64lbW': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_add_96kbM': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_fadd_3bkb': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_fcmp_3dEe': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_fmul_3cud': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_mul_32eOg': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_mul_32hbi': 13 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_mul_32ibs': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_mul_64fYi': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_mul_96g8j': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer'.
+INFO: [HLS 200-111]  Elapsed time: 2.285 seconds; current allocated memory: 92.133 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'conv_layer_mul_32eOg_MulnS_0'
+INFO: [RTMG 210-282] Generating pipelined core: 'conv_layer_mul_64fYi_MulnS_1'
+INFO: [RTMG 210-282] Generating pipelined core: 'conv_layer_mul_96g8j_MulnS_2'
+INFO: [RTMG 210-282] Generating pipelined core: 'conv_layer_mul_32hbi_MulnS_3'
+INFO: [RTMG 210-282] Generating pipelined core: 'conv_layer_mul_32ibs_MulnS_4'
+INFO: [RTMG 210-283] Generating pipelined adder/subtractor : 'conv_layer_add_12jbC_AddSubnS_0'
+INFO: [RTMG 210-283] Generating pipelined adder/subtractor : 'conv_layer_add_96kbM_AddSubnS_1'
+INFO: [RTMG 210-283] Generating pipelined adder/subtractor : 'conv_layer_add_64lbW_AddSubnS_2'
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:19 ; elapsed = 00:00:48 . Memory (MB): peak = 144.211 ; gain = 94.410
+INFO: [SYSC 207-301] Generating SystemC RTL for conv_layer.
+INFO: [VHDL 208-304] Generating VHDL RTL for conv_layer.
+INFO: [VLOG 209-307] Generating Verilog RTL for conv_layer.
+INFO: [IMPL 213-8] Exporting RTL as an IP in IP-XACT.
+
+****** Vivado v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+Sourcing tcl script 'C:/Users/Wilson/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+source run_ippack.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 320.500 ; gain = 92.305
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+WARNING: [IP_Flow 19-4832] The IP name 'conv_layer_ap_fadd_11_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 349.309 ; gain = 28.809
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'conv_layer_ap_fadd_11_full_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'conv_layer_ap_fadd_11_full_dsp_32'...
+WARNING: [IP_Flow 19-4832] The IP name 'conv_layer_ap_fcmp_2_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 360.367 ; gain = 3.043
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'conv_layer_ap_fcmp_2_no_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'conv_layer_ap_fcmp_2_no_dsp_32'...
+WARNING: [IP_Flow 19-4832] The IP name 'conv_layer_ap_fmul_6_max_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 367.434 ; gain = 7.066
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'conv_layer_ap_fmul_6_max_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'conv_layer_ap_fmul_6_max_dsp_32'...
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 30 12:42:38 2019...
+INFO: [HLS 200-112] Total elapsed time: 282.395 seconds; peak allocated memory: 92.133 MB.
